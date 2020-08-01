@@ -1,0 +1,28 @@
+.login-form{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.login-form h2{
+    margin-bottom: 40px;
+}
+
+.login-form input{
+    font-family: inherit;
+}
+
+.login-form input:focus{
+    background-color: #f1f1f1;
+}
+
+.login-form button{
+    margin-top: 30px;
+    font-size: 15px;
+    background-color: #1cc373;
+    color: #e1fbf1;
+    padding: 15px 70px 15px 70px;
+    border: none;
+    border-radius: 5px;
+}
