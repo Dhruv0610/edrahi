@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import './login.css';
@@ -15,11 +15,22 @@ const theme = createMuiTheme({
 });
           
 
-const Login = () => {
+const Login = (props) => {
+    const [number,setNumber] = useState('');
+
+    function handleChange(e){
+        setNumber(e.target.value);
+    }
+
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log(props.validateUser(number));
+    }
+
     return ( 
         <ThemeProvider theme={theme}>
             <div className='login-form'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2>
                         Welcome Back
                     </h2>
@@ -29,8 +40,9 @@ const Login = () => {
                         label="Enter your Mobile Number"
                         helperText='By clicking on "Send OTP" button, I agree to receive OTP for Mobile Number verification.'
                         variant="outlined"
+                        onChange={handleChange}
                     /><br/>
-                    <button>Send OTP</button>
+                    <button type='submit'>Send OTP</button>
                 </form>
             </div>
         </ThemeProvider>
