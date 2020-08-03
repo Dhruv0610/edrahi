@@ -1,21 +1,2 @@
-.navbar{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #3a38d7;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
 
-.navbar-logo{
-    padding: 20px;
-    border-radius: 50%;
-    width: 175px;
-}
-
-@media only screen and (min-width: 480px){
-    .navbar-logo{
-        width: 200px;
-    }    
-}
 

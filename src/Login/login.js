@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import './login.css';
+import logo from '../images/logo.jpg';
 
 const theme = createMuiTheme({
     overrides: {
@@ -25,10 +26,15 @@ const Login = (props) => {
     function handleSubmit(e){
         e.preventDefault();
         console.log(props.validateUser(number));
+        e.target.reset();
     }
 
     return ( 
         <ThemeProvider theme={theme}>
+            <div className="image-container">
+                <img src={logo} className='logo' alt='logo'></img>
+                <div className='image-border'></div>
+            </div>
             <div className='login-form'>
                 <form onSubmit={handleSubmit}>
                     <h2>

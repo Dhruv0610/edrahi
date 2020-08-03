@@ -1,6 +1,38 @@
+.image-container{
+    width: 100%;
+    justify-content: space-around;
+    background: linear-gradient(to bottom, #3b38d8, #4d4ad9);
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo{
+    padding: 20px;
+    border-radius: 50%;
+    width: 175px;
+}
+
+@media only screen and (min-width: 480px){
+    .logo{
+        width: 200px;
+    }    
+}
+
+.image-border{
+    height: 30px;
+    width: 100%;
+    background: white;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    /* border-bottom: 0px solid #fff; */
+}
+
 .login-form{
     text-align: center;
-    padding: 20px;
+    padding: 3%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -28,7 +60,7 @@
     font-size: 15px;
     background-color: #1cc373;
     color: #e1fbf1;
-    padding: 5% 30% 5% 30%;
+    padding: 5% 20% 5% 20%;
     /* padding: 15px 70px 15px 70px; */
     border: none;
     border-radius: 5px;
@@ -39,3 +71,6 @@
         padding: 3% 30% 3% 30%;
     }    
 }
+
+
+

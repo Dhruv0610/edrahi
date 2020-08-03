@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './App.css';
-import Navbar from '../Navbar/navbar';
+// import Navbar from '../Navbar/navbar';
 import Login from '../Login/login';
 import {BrowserRouter,Route} from 'react-router-dom';
 
@@ -32,7 +32,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
         <Route exact path='/' render={(props)=><Login {...props} validateUser={validateUser}/>} />
       </div>
     </BrowserRouter>
