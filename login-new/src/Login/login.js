@@ -26,30 +26,33 @@ const Login = (props) => {
     function handleSubmit(e){
         e.preventDefault();
         console.log(props.validateUser(number));
+        props.history.push('/otp');
         e.target.reset();
     }
 
     return ( 
         <ThemeProvider theme={theme}>
-            <div className="image-container">
-                <img src={logo} className='logo' alt='logo'></img>
-                <div className='image-border'></div>
-            </div>
-            <div className='login-form'>
-                <form onSubmit={handleSubmit}>
-                    <h2>
-                        Welcome Back
-                    </h2>
-                    <TextField
-                        className='form-input'
-                        id="outlined-helperText"
-                        label="Enter your Mobile Number"
-                        helperText='By clicking on "Send OTP" button, I agree to receive OTP for Mobile Number verification.'
-                        variant="outlined"
-                        onChange={handleChange}
-                    /><br/>
-                    <button type='submit'>Send OTP</button>
-                </form>
+            <div className='main-section'>
+                <div className="image-container">
+                    <img src={logo} className='logo' alt='logo'></img>
+                    {/* <div className='image-border'></div> */}
+                </div>
+                <div className='login-form'>
+                    <form onSubmit={handleSubmit}>
+                        <h2>
+                            Welcome Back
+                        </h2>
+                        <TextField
+                            className='form-input'
+                            id="outlined-helperText"
+                            label="Enter your Mobile Number"
+                            helperText='By clicking on "Send OTP" button, I agree to receive OTP for Mobile Number verification.'
+                            variant="outlined"
+                            onChange={handleChange}
+                        /><br/>
+                        <button type='submit'>Send OTP</button>
+                    </form>
+                </div>
             </div>
         </ThemeProvider>
      );

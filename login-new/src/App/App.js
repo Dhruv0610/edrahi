@@ -3,6 +3,7 @@ import './App.css';
 // import Navbar from '../Navbar/navbar';
 import Login from '../Login/login';
 import {BrowserRouter,Route} from 'react-router-dom';
+import Otp from '../Otp/otp.js';
 
 function App() {
   const existingUsers=[];
@@ -33,6 +34,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Route exact path='/' render={(props)=><Login {...props} validateUser={validateUser}/>} />
+        <Route path='/otp' render={(props)=><Otp {...props} />} />
       </div>
     </BrowserRouter>
   );
