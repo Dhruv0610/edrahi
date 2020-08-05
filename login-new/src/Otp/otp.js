@@ -5,11 +5,12 @@ import './otp.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ReplayIcon from '@material-ui/icons/Replay';
+import OtpInput from 'react-otp-input';
 // import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const Otp = (props) => {
 
-    // const [otp,setOtp] = useState('');
+    const [otp,setOtp] = useState('');
     const [progress,setProgress] = useState(0);
 
     // const otpTimer=<CircularProgress variant="static" value={progress} />;
@@ -25,9 +26,9 @@ const Otp = (props) => {
         };
     }, []);
 
-    // function handleChange(e){
-    //     setOtp=e.target.value;
-    // }
+    function handleChange(e){
+        setOtp(e);
+    }
 
     function handleSubmit(e){
         e.preventDefault();
@@ -48,6 +49,11 @@ const Otp = (props) => {
                                         <p>{Math.round((100-progress)/10)}s</p>
                                     </div>;
 
+    const inputStyle={
+        width: 40,
+        height: 55,
+        marginRight: 15
+    }
 
     return ( 
         <div className='main-section'>
@@ -56,28 +62,28 @@ const Otp = (props) => {
             </div>
             <div className='otp-form'>
                     <div className='otp-heading'>
-                        <Link to='/'><button className="back-button"><ArrowBackIosIcon></ArrowBackIosIcon></button></Link>
+                        <Link to='/'><button className="back-button"><ArrowBackIosIcon></ArrowBackIosIcon><span>Back</span></button></Link>
                         <h2>
                             Welcome Back
                         </h2>
                     </div>        
                 <form onSubmit={handleSubmit}>
-                    <input id="codeBox1" type="number" maxlength="1"></input>
-                    <input id="codeBox2" type="number" maxlength="1"></input>
-                    <input id="codeBox3" type="number" maxlength="1"></input>
-                    <input id="codeBox4" type="number" maxlength="1"></input>
-                    {/* <div className='progress-bar'>
-                        <CircularProgress variant="static" value={progress} />
-                        <p>{Math.round((100-progress)/10)}s</p>
-                    </div> */}
-                    {/* <div className='resend-icon'>
-                        <ReplayIcon color='primary'></ReplayIcon>
-                        <p>Resend OTP</p>
-                    </div> */}
-                    {otpTimer}
-                </form>
-                <p>Enter the OTP you received on 9810715286</p>
-                <button type='submit' className='submit-button'>Verify</button>
+                    <div className='form-input'>
+                        <OtpInput
+                            value={otp}
+                            onChange={handleChange}
+                            numInputs={4}
+                            inputStyle={inputStyle}
+                        />
+                        {/* <input id="codeBox1" type="number" maxLength="1"></input>
+                        <input id="codeBox2" type="number" maxLength="1"></input>
+                        <input id="codeBox3" type="number" maxLength="1"></input>
+                        <input id="codeBox4" type="number" maxLength="1"></input> */}
+                        {otpTimer}
+                    </div>
+                    <p className='otp-helper-text'>Enter the OTP you received on 9810715286</p>
+                    <button type='submit' className='submit-button'>Verify</button>
+                </form>               
             </div>
         </div>
     );

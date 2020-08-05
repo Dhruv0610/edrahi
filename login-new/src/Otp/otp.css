@@ -19,6 +19,7 @@
 .otp-form h2{
     text-decoration: none;
     margin-bottom: 40px;
+    font-size: 18px;
 }
 
 .otp-form p{
@@ -27,7 +28,7 @@
     color: rgba(0, 0, 0, 0.54)
 }
 
-.otp-form form{
+.otp-form .form-input{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,9 +37,9 @@
         
 }
 
-.otp-form form input{
+.otp-form .form-input input{
     width: 35px;
-    height: 35px;
+    height: 50px;
     padding: 0;
     margin-right: 15px;
     text-align: center;
@@ -46,34 +47,26 @@
     border-radius: 4px;
 }
 
-@media only screen and (min-width: 380px){
-    .otp-form form input{
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        margin-right: 25px;
-    }       
-}
 
-.otp-form form input:last-child{
+/* .otp-form form input:last-child{
     margin-right: 0px;
-}
+} */
 
-.otp-form form input::-webkit-inner-spin-button, input::-webkit-outer-spin-button { 
+/* .otp-form form input::-webkit-inner-spin-button, input::-webkit-outer-spin-button { 
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
-}
+} */
 
-.otp-form form input:focus, .focus{
+.otp-form .form-input input:focus, .focus{
     border-color: green;
     outline: none;
     box-shadow: none;
 }
 
 .otp-form .submit-button{
-    width: 260px;
-    margin-top: 30px;
+    width: 295px;
+    margin-top: 20px;
     font-size: 15px;
     background-color: #1cc373;
     color: #e1fbf1;
@@ -83,18 +76,15 @@
     border-radius: 5px;
 }
 
-@media only screen and (min-width: 380px){
-    .otp-form .submit-button{
-        width: 360px;
-    }
-}
-
 .otp-heading .back-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     border: none;
     background: transparent;
-    left: 4%;
-    top: 200px;
+    left: 2%;
+    top: 190px;
 }
 
 .otp-heading h2{
@@ -123,9 +113,34 @@
     font-size: 10px;
 }
 
+.otp-helper-text{
+    margin-top: 30px;
+}
+
+@media only screen and (min-width: 380px){
+    .otp-heading .back-button{
+        top: 200px;
+        left: 3%;
+        font-size: 16px;
+    }    
+    .otp-form h2{
+        font-size: 24px;
+    }
+    /* .otp-form form input{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        margin-right: 25px;
+    } */
+}
+
 @media only screen and (min-width: 480px){
     .otp-heading .back-button{
         top: 225px;
+        left: 5%;
+        font-size: 18px;
     }    
 }
+
+
 
