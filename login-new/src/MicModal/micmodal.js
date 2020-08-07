@@ -3,10 +3,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import MicNoneIcon from '@material-ui/icons/MicNone';
 import Fade from '@material-ui/core/Fade';
 import ReactSwipeEvents from 'react-swipe-events';
+import {ReactMic} from 'react-mic';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-    //   backgroundColor: theme.palette.background.paper,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -34,8 +34,13 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 10,
         width: '80vw',
         color: 'white'
+    },
+    recorder: {
+        width: 0,
+        visibility: "hidden"
     }
   }));
+
 
 const MicModal = (props) => {
 
@@ -80,13 +85,23 @@ const MicModal = (props) => {
                         <div className={classes.paperTextBottom}>
                             Press and hold this button to record a voice note
                         </div>
+                        ;
+
+    function onStop(r){
+        console.log(r);
+    }
 
     return ( 
         <Fade in={props.openMic}>
             <div className={classes.paper}>
                 {helperTextTop}
-                <div className={classes.micIcon} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onSwipedDown={props.handleSwipeDown}>
+                <div className={classes.micIcon} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                     <MicNoneIcon style={{fontSize: 40}} color='primary'/>
+                    <ReactMic 
+                        record={touch}
+                        className={classes.recorder}
+                        onStop={onStop}
+                    />
                 </div>
                 {helperTextBottom}
             </div>
