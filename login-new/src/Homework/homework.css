@@ -1,0 +1,10 @@
+.main-homework-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mic-icon{
+    margin-top: 10px;
+}

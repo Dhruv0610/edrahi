@@ -4,6 +4,7 @@ import './App.css';
 import Login from '../Login/login';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Otp from '../Otp/otp.js';
+import Homework from '../Homework/homework';
 
 function App() {
   const existingUsers=[];
@@ -16,8 +17,9 @@ function App() {
   const [currUser,setCurrUser] = useState({name:'', number:'', id:0});
 
   function addUser(user){
-    console.log(user);
+    // console.log(user);
     user.id=Math.random();
+    setCurrUser(user);
     localStorage.setItem(user.id,JSON.stringify(user));
     let newUsers = [...users,user];
     setUsers(newUsers);
@@ -26,6 +28,7 @@ function App() {
   function validateUser(number){
     return (users.some((u)=>{
       setCurrUser(u);
+      console.log(u);
       return u.number===number;
     }));
   }
@@ -35,6 +38,7 @@ function App() {
       <div className="App">
         <Route exact path='/' render={(props)=><Login {...props} validateUser={validateUser}/>} />
         <Route path='/otp' render={(props)=><Otp {...props} />} />
+        <Route path='/homework' render={(props)=><Homework {...props} subject='Maths' class='VIII-F' dueDate='11-08-2020'/>} />
       </div>
     </BrowserRouter>
   );

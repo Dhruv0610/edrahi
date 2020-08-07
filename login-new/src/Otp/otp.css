@@ -19,7 +19,7 @@
 .otp-form h2{
     text-decoration: none;
     margin-bottom: 40px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .otp-form p{
@@ -31,7 +31,7 @@
 .otp-form .form-input{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: auto;
     margin: 0 auto;
         
@@ -83,6 +83,7 @@
     position: absolute;
     border: none;
     background: transparent;
+    font-weight: bolder;
     left: 2%;
     top: 190px;
 }
@@ -119,7 +120,7 @@
 
 @media only screen and (min-width: 380px){
     .otp-heading .back-button{
-        top: 200px;
+        top: 195px;
         left: 3%;
         font-size: 16px;
     }    
@@ -136,7 +137,7 @@
 
 @media only screen and (min-width: 480px){
     .otp-heading .back-button{
-        top: 225px;
+        top: 220px;
         left: 5%;
         font-size: 18px;
     }    

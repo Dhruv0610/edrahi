@@ -32,7 +32,8 @@ const Otp = (props) => {
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log('Hi');
+        console.log(otp);
+        props.history.push('/homework');
     }
 
     function handleClick(){
@@ -51,7 +52,7 @@ const Otp = (props) => {
 
     const inputStyle={
         width: 40,
-        height: 55,
+        height: 45,
         marginRight: 15
     }
 
@@ -74,6 +75,7 @@ const Otp = (props) => {
                             onChange={handleChange}
                             numInputs={4}
                             inputStyle={inputStyle}
+                            autoFocus={true}
                         />
                         {/* <input id="codeBox1" type="number" maxLength="1"></input>
                         <input id="codeBox2" type="number" maxLength="1"></input>
