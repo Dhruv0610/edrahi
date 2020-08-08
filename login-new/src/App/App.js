@@ -5,6 +5,7 @@ import Login from '../Login/login';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Otp from '../Otp/otp.js';
 import Homework from '../Homework/homework';
+import Profile from '../Profile/profile';
 
 function App() {
   const existingUsers=[];
@@ -14,7 +15,7 @@ function App() {
   }
 
   const [users,setUsers] = useState([{name:'Dhruv',number:'9810715286',id:1}]); //Change to existingUsers later
-  const [currUser,setCurrUser] = useState({name:'', number:'', id:0});
+  const [currUser,setCurrUser] = useState({name:'Dhruv', number:'9810715286', id:1, school: 'New Era Public School', board:'CBSE', email:'kathpaliadhruv@gmail.com', address:'Tilak Nagar, New Delhi-18', gradesTaught:[{grade: 'VIII-A', subject:'Maths'},{grade: 'VIII-B', subject:'Science'},{grade: 'VIII-C', subject:'English'},{grade: 'VIII-D', subject:'Maths'}]});
 
   function addUser(user){
     // console.log(user);
@@ -39,6 +40,7 @@ function App() {
         <Route exact path='/' render={(props)=><Login {...props} validateUser={validateUser}/>} />
         <Route path='/otp' render={(props)=><Otp {...props} />} />
         <Route path='/homework' render={(props)=><Homework {...props} subject='Maths' class='VIII-F' dueDate='11-08-2020'/>} />
+        <Route path='/profile' render={(props)=><Profile {...props} user={currUser} />} />
       </div>
     </BrowserRouter>
   );
