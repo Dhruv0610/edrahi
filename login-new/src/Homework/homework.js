@@ -51,11 +51,11 @@ const Homework = (props) => {
     }
 
     const micBody=(
-        <MicModal openMic={openMic} />
+        <MicModal openMic={openMic} handleMicClose={handleMicClose}/>
     );
 
     const shareBody=(
-        <ShareModal openShare={openShare} subject={props.subject} class={props.class} dueDate={props.dueDate} />
+        <ShareModal openShare={openShare} handleShareClose={handleShareClose} subject={props.subject} class={props.class} dueDate={props.dueDate} />
     );
 
     return ( 

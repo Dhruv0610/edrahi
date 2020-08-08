@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import ShareIcon from '@material-ui/icons/Share';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import google from '../images/google.png';
 import whatsapp from '../images/whatsapp.png';
 import edrahi from '../images/edrahi.png';
+import {WhatsappShareButton} from 'react-share';
+import './sharemodal.css';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -42,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold"
     },
     modalText: {
+        // color: 'gray',
         marginTop: 10,
         marginBottom: 20,
         width: '75%'
@@ -56,6 +59,8 @@ const useStyles = makeStyles((theme) => ({
     google:{
         fontWeight: 'bold',
         flexBasis: 1,
+        position: 'relative',
+        top: -8
     },
     edrahi:{
         fontWeight: 'bold',
@@ -71,8 +76,25 @@ const ShareModal = (props) => {
     const classes = useStyles();
 
     function handleClick(){
+        props.handleShareClose();
         console.log('Exit button clicked');
     }
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = "https://apis.google.com/js/platform.js";
+        script.async = true;
+        document.body.appendChild(script);
+      return () => {
+          document.body.removeChild(script);
+        }
+      }, []);
+
+
+    // function handleGoogleShare(){
+    //     gapi.sharetoclassroom.render('content',{"url":"https://www.google.com"});
+    // }
+
 
     return (
         <div className={classes.paper}>
@@ -89,12 +111,19 @@ const ShareModal = (props) => {
                 You are sharing this {props.subject} homework with class {props.class} and the due date is {props.dueDate}
             </div>
             <div className={classes.shareIcons}>
-                <div className={classes.google}>
-                    <img src={google} alt='google-icon'></img>
-                    Google Classroom
+                <div id='content' className={classes.google}>
+                    <div className='g-sharetoclassroom' data-body="Math homework for class VIII-F. The due date is 13-08-2020" data-url={String(Window.location)}>
+                        
+                    </div>
+                    {/* <img id="content" src={google} alt='google-icon'></img> */}
+                    <div className="google-text">
+                        Google Classroom
+                    </div>
                 </div>
                 <div className={classes.whatsapp}>
-                    <img src={whatsapp} alt='whatsapp-icon'></img>
+                    <WhatsappShareButton url={String(Window.location)} title='Math homework for class VIII-F. The due date is 13-08-2020'>
+                        <img src={whatsapp} alt='whatsapp-icon'></img>
+                    </WhatsappShareButton>
                     Whatsapp
                 </div>
                 <div className={classes.edrahi}>

@@ -4,6 +4,7 @@ import MicNoneIcon from '@material-ui/icons/MicNone';
 import Fade from '@material-ui/core/Fade';
 import ReactSwipeEvents from 'react-swipe-events';
 import {ReactMic} from 'react-mic';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -47,6 +48,7 @@ const MicModal = (props) => {
     const [touch,setTouch]=useState(false);
     const [time,setTime]=useState(0);
     const [start,setStart]=useState(0);
+    const [firstTouch,setFirstTouch] = useState(false);
     const ms=require('pretty-ms');
     let timer = 0;
 
@@ -54,12 +56,14 @@ const MicModal = (props) => {
 
     function handleTouchStart(){
         setTouch(true);
+        setFirstTouch(true);
         setStart(Date.now());
         timer = setInterval(()=>setTime((Date.now())),1);
     }
 
     function handleTouchEnd(){
         setTouch(false);
+        console.log(firstTouch);
         setTime(0);
         clearInterval(timer);
     }
@@ -69,12 +73,14 @@ const MicModal = (props) => {
                                     <div className={classes.paperTextTop}>
                                         {ms(time-start,{compact: true, colonNotation: true})}
                                     </div>
-                                    <div className={classes.paperTextTop}>
-                                        Swipe Down to Cancel 
-                                    </div>
                                 </div>
-                                :
-                                <div className={classes.paperTextTop}></div> 
+                                : firstTouch ?
+                                    <div className={classes.paperTextTop}  onClick={props.handleMicClose}>
+                                        <HighlightOffIcon />
+                                    </div> 
+                                    :
+                                    <div className={classes.paperTextTop}></div>
+
                                
 
     const helperTextBottom = touch ? 
@@ -82,9 +88,11 @@ const MicModal = (props) => {
                             
                         </div>
                         :
-                        <div className={classes.paperTextBottom}>
-                            Press and hold this button to record a voice note
-                        </div>
+                        <React.Fragment>
+                            <div className={classes.paperTextBottom}>
+                                Press and hold this button to record a voice note
+                            </div>
+                        </React.Fragment>
                         ;
 
     function onStop(r){
