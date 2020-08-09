@@ -6,6 +6,8 @@ import {BrowserRouter,Route} from 'react-router-dom';
 import Otp from '../Otp/otp.js';
 import Homework from '../Homework/homework';
 import Profile from '../Profile/profile';
+import EditProfile from '../EditProfile/editprofile';
+import defaultProfile from '../images/profile.jpg';
 
 function App() {
   const existingUsers=[];
@@ -14,8 +16,14 @@ function App() {
       existingUsers.push(JSON.parse(localStorage.getItem(key)));
   }
 
-  const [users,setUsers] = useState([{name:'Dhruv',number:'9810715286',id:1}]); //Change to existingUsers later
-  const [currUser,setCurrUser] = useState({name:'Dhruv', number:'9810715286', id:1, school: 'New Era Public School', board:'CBSE', email:'kathpaliadhruv@gmail.com', address:'Tilak Nagar, New Delhi-18', gradesTaught:[{grade: 'VIII-A', subject:'Maths'},{grade: 'VIII-B', subject:'Science'},{grade: 'VIII-C', subject:'English'},{grade: 'VIII-D', subject:'Maths'}]});
+  const [users,setUsers] = useState([{name:'Dhruv',number:'9810715286',id:1, school: 'New Era Public School', board:'', email:'kathpaliadhruv@gmail.com', address:'Tilak Nagar, New Delhi-18', preview:'profile.jpg', gradesTaught:[{id: 1, grade: 'VIII-A', subject:'Maths'},{id: 2, grade: 'VIII-B', subject:'Science'},{id: 3, grade: 'VIII-C', subject:'English'},{id: 4, grade: 'VIII-D', subject:'Maths'}]}]); //Change to existingUsers later
+  const [currUser,setCurrUser] = useState({name:'Dhruv', number:'9810715286', id:1, school: 'New Era Public School', board:'', email:'kathpaliadhruv@gmail.com', address:'Tilak Nagar, New Delhi-18', preview:'profile.jpg', gradesTaught:[{id: 1, grade: 'VIII-A', subject:'Maths'},{id: 2, grade: 'VIII-B', subject:'Science'},{id: 3, grade: 'VIII-C', subject:'English'},{id: 4,grade: 'VIII-D', subject:'Maths'}]});
+
+  function editUser(user){
+    console.log(user);
+    setCurrUser(user);
+
+  }
 
   function addUser(user){
     // console.log(user);
@@ -41,6 +49,7 @@ function App() {
         <Route path='/otp' render={(props)=><Otp {...props} />} />
         <Route path='/homework' render={(props)=><Homework {...props} subject='Maths' class='VIII-F' dueDate='11-08-2020'/>} />
         <Route path='/profile' render={(props)=><Profile {...props} user={currUser} />} />
+        <Route path='/edit_profile' render={(props)=><EditProfile {...props} user={currUser} editUser={editUser}/>} />
       </div>
     </BrowserRouter>
   );

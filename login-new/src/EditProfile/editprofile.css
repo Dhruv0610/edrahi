@@ -1,0 +1,106 @@
+.edit-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.edit-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-header h1{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.edit-header button{
+    padding: 5px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: #1bc372;
+    color: #d9f8e6;
+    border-radius: 3px;
+}
+
+.profile-image-preview{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.profile-image-preview img{
+    width: 100px;
+    border-radius: 50%;
+    border: #dedede 2px solid;
+}
+
+.profile-image-preview input{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.profile-image-preview label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #6a98cc;
+    padding: 10px;
+}
+
+.profile-form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: #ebeced 3px solid;
+}
+
+.profile-form input{
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 2px;
+    border: 1px gray solid;
+}
+
+.grades-remove{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    width: 160px;
+}
+
+.grade-remove-icon{
+    margin-left: 10px;
+}
+
+.add-new-class{
+    display: flex;
+    flex-direction: column;
+    border-top: #ebeced 3px solid;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.new-class-heading{
+    position: relative;
+    top: -28px;
+    width: 120px;
+    background-color: white;
+    padding: 10px 0 0 10px;
+    color: gray;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.add-new-class select{
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 2px;
+    border: 1px gray solid;
+}
