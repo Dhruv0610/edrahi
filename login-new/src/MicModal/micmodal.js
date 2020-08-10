@@ -6,6 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import {ReactMic} from 'react-mic';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { green } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -97,11 +98,11 @@ const MicModal = (props) => {
     const micIconView = (!touch)&&firstTouch ? 
                                     <div className={classes.iconContainer}>
                                         <div className={classes.paperTextTop}  onClick={handleCancel}>
-                                            <HighlightOffIcon style={{fontSize: 40}}/>
+                                            <HighlightOffIcon style={{fontSize: 40}} color='secondary'/>
                                             <p>Cancel</p>
                                         </div>  
                                         <div className={classes.paperTextTop}  onClick={handleSubmit}>
-                                            <CheckCircleOutlineIcon style={{fontSize: 40}}/>
+                                            <CheckCircleOutlineIcon style={{fontSize: 40, color: green[500]}}/>
                                             <p>Submit</p>
                                         </div>
                                     </div>
