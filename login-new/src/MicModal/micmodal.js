@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import MicNoneIcon from '@material-ui/icons/MicNone';
 import Fade from '@material-ui/core/Fade';
-import ReactSwipeEvents from 'react-swipe-events';
+// import ReactSwipeEvents from 'react-swipe-events';
 import {ReactMic} from 'react-mic';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -14,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
       position: "absolute",
       bottom: 60
+    },
+    iconContainer: {
+        display: 'flex',
+        alignItems: 'center'
     },
     micIcon: {
         backgroundColor: theme.palette.background.paper,
@@ -33,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         height: 30,
         marginBottom: 10,
-        width: '80vw',
+        width: '40vw',
         color: 'white'
     },
     recorder: {
@@ -63,9 +68,18 @@ const MicModal = (props) => {
 
     function handleTouchEnd(){
         setTouch(false);
-        console.log(firstTouch);
         setTime(0);
         clearInterval(timer);
+    }
+
+    function handleSubmit(){
+        props.handleMicClose();
+        console.log('Audio Confirmed');
+    }
+
+    function handleCancel(){
+        props.handleMicClose();
+        console.log('Audio Cancelled');
     }
 
     const helperTextTop = touch ?  
@@ -75,15 +89,33 @@ const MicModal = (props) => {
                                     </div>
                                 </div>
                                 : firstTouch ?
-                                    <div className={classes.paperTextTop}  onClick={props.handleMicClose}>
-                                        <HighlightOffIcon />
-                                    </div> 
+                                    <div className={classes.paperTextTop}></div>
                                     :
                                     <div className={classes.paperTextTop}></div>
 
                                
+    const micIconView = (!touch)&&firstTouch ? 
+                                    <div className={classes.iconContainer}>
+                                        <div className={classes.paperTextTop}  onClick={handleCancel}>
+                                            <HighlightOffIcon style={{fontSize: 40}}/>
+                                            <p>Cancel</p>
+                                        </div>  
+                                        <div className={classes.paperTextTop}  onClick={handleSubmit}>
+                                            <CheckCircleOutlineIcon style={{fontSize: 40}}/>
+                                            <p>Submit</p>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div className={classes.micIcon} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+                                        <MicNoneIcon style={{fontSize: 40}} color='primary'/>
+                                        <ReactMic 
+                                            record={touch}
+                                            className={classes.recorder}
+                                            onStop={onStop}
+                                        />
+                                    </div>
 
-    const helperTextBottom = touch ? 
+    const helperTextBottom = firstTouch ? 
                         <div className={classes.paperTextBottom}>
                             
                         </div>
@@ -103,14 +135,7 @@ const MicModal = (props) => {
         <Fade in={props.openMic}>
             <div className={classes.paper}>
                 {helperTextTop}
-                <div className={classes.micIcon} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-                    <MicNoneIcon style={{fontSize: 40}} color='primary'/>
-                    <ReactMic 
-                        record={touch}
-                        className={classes.recorder}
-                        onStop={onStop}
-                    />
-                </div>
+                {micIconView}
                 {helperTextBottom}
             </div>
         </Fade>
