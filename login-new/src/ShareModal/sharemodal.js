@@ -62,10 +62,10 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         top: -8
     },
-    edrahi:{
-        fontWeight: 'bold',
-        flexBasis: 1
-    },
+    // edrahi:{
+    //     fontWeight: 'bold',
+    //     flexBasis: 1
+    // },
     whatsapp:{
         fontWeight: 'bold',
         flexBasis: 1
@@ -126,10 +126,10 @@ const ShareModal = (props) => {
                     </WhatsappShareButton>
                     Whatsapp
                 </div>
-                <div className={classes.edrahi}>
+                {/* <div className={classes.edrahi}>
                     <img src={edrahi} alt='edrahi-icon'></img>
                     EdRAHI
-                </div>
+                </div> */}
             </div>
         </div>
     );
