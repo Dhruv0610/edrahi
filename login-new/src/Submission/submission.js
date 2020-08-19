@@ -3,7 +3,6 @@ import Navbar from '../Navbar/navbar';
 import Modal from '@material-ui/core/Modal';
 import '@uppy/core/dist/style.css';
 import '@uppy/dashboard/dist/style.css';
-// import '@uppy/provider-views/dist/style.css';
 import DashboardModal from '@uppy/react/lib/DashboardModal';
 import Uppy from '@uppy/core';
 import './submission.css';
@@ -17,40 +16,6 @@ import GoogleDrive from '@uppy/google-drive';
 import Dropbox from '@uppy/dropbox';
 import Webcam from '@uppy/webcam';
 
-// const Uppy = require('@uppy/core')
-// const Dashboard = require('@uppy/dashboard')
-// const Tus = require('@uppy/tus')
-
-// const uppy = new Uppy({
-//     debug: true,
-//     autoProceed: false,
-//     restrictions: {
-//       maxFileSize: 1000000,
-//       maxNumberOfFiles: 3,
-//       minNumberOfFiles: 2,
-//       allowedFileTypes: ['image/*', 'video/*']
-//     }
-//   })
-//   .use(Dashboard, {
-//     trigger: '.UppyModalOpenerBtn',
-//     inline: true,
-//     target: '.DashboardContainer',
-//     replaceTargetContent: true,
-//     showProgressDetails: true,
-//     note: 'Images and video only, 2–3 files, up to 1 MB',
-//     height: 470,
-//     metaFields: [
-//       { id: 'name', name: 'Name', placeholder: 'file name' },
-//       { id: 'caption', name: 'Caption', placeholder: 'describe what the image is about' }
-//     ],
-//     browserBackButtonClose: true
-//   })
-//   .use(Tus, { endpoint: 'https://master.tus.io/files/' })
-  
-//   uppy.on('complete', result => {
-//     console.log('successful files:', result.successful)
-//     console.log('failed files:', result.failed)
-//   })
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -77,26 +42,13 @@ const Submission = (props) => {
 
     const uppy = React.useMemo(() => {
         return Uppy()
-        // .use(DashboardModal, {
-        //     id: 'MyDashboard',
-        //     trigger: '.submit-container',
-        //     target: 'body',
-        //     height: '300px',
-            
-        // })
         .use(GoogleDrive, { companionUrl: 'https://companion.uppy.io' })
         .use(Webcam, {
             onBeforeSnapshot: () => Promise.resolve(),
             countdown: false,
-            modes: [
-              'video-audio',
-              'video-only',
-              'audio-only',
-              'picture'
-            ],
             mirror: true,
             facingMode: 'environment',
-            showRecordingLength: false,
+            showRecordingLength: true,
             preferredVideoMimeType: null,
             preferredImageMimeType: null,
             
@@ -152,8 +104,6 @@ const Submission = (props) => {
                     uppy={uppy}
                     trigger='.submit-container'
                     target='body'
-                    // height='300px'
-                    // width='100px'
                     plugins={['Webcam','GoogleDrive','Dropbox']}
                     proudlyDisplayPoweredByUppy={false}
                     locale={{
