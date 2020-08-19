@@ -152,8 +152,8 @@ const Submission = (props) => {
                     uppy={uppy}
                     trigger='.submit-container'
                     target='body'
-                    height='300px'
-                    width='100px'
+                    // height='300px'
+                    // width='100px'
                     plugins={['Webcam','GoogleDrive','Dropbox']}
                     proudlyDisplayPoweredByUppy={false}
                     locale={{
