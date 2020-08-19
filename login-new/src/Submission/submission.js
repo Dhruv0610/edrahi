@@ -15,6 +15,7 @@ import CameraAltOutlinedIcon from '@material-ui/icons/CameraAltOutlined';
 import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded';
 import GoogleDrive from '@uppy/google-drive';
 import Dropbox from '@uppy/dropbox';
+import Webcam from '@uppy/webcam';
 
 // const Uppy = require('@uppy/core')
 // const Dashboard = require('@uppy/dashboard')
@@ -84,6 +85,22 @@ const Submission = (props) => {
             
         // })
         .use(GoogleDrive, { companionUrl: 'https://companion.uppy.io' })
+        .use(Webcam, {
+            onBeforeSnapshot: () => Promise.resolve(),
+            countdown: false,
+            modes: [
+              'video-audio',
+              'video-only',
+              'audio-only',
+              'picture'
+            ],
+            mirror: true,
+            facingMode: 'environment',
+            showRecordingLength: false,
+            preferredVideoMimeType: null,
+            preferredImageMimeType: null,
+            
+          })
         .use(Dropbox, { companionUrl: 'https://companion.uppy.io' })
         .use(Tus, { endpoint: 'https://master.tus.io/files/' })
     }, [])
@@ -137,7 +154,7 @@ const Submission = (props) => {
                     target='body'
                     height='300px'
                     width='100px'
-                    plugins={['GoogleDrive','Dropbox']}
+                    plugins={['Webcam','GoogleDrive','Dropbox']}
                     proudlyDisplayPoweredByUppy={false}
                     locale={{
                         strings: {

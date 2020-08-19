@@ -15,6 +15,7 @@
     "@uppy/locales": "^1.16.5",
     "@uppy/react": "^1.10.5",
     "@uppy/tus": "^1.7.5",
+    "@uppy/webcam": "^1.6.11",
     "mic-recorder-to-mp3": "^2.2.2",
     "pretty-ms": "^7.0.0",
     "react": "^16.13.1",
