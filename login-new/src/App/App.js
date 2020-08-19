@@ -7,7 +7,9 @@ import Otp from '../Otp/otp.js';
 import Homework from '../Homework/homework';
 import Profile from '../Profile/profile';
 import EditProfile from '../EditProfile/editprofile';
+import Submission from '../Submission/submission';
 import defaultProfile from '../images/profile.jpg';
+// import HwInfo from '../HwInfo/hwinfo';
 
 function App() {
   const existingUsers=[];
@@ -50,6 +52,7 @@ function App() {
         <Route path='/homework' render={(props)=><Homework {...props} subject='Maths' class='VIII-F' dueDate='11-08-2020'/>} />
         <Route path='/profile' render={(props)=><Profile {...props} user={currUser} />} />
         <Route path='/edit_profile' render={(props)=><EditProfile {...props} user={currUser} editUser={editUser}/>} />
+        <Route path='/submission' render={(props)=><Submission {...props} user={currUser} subject='Maths' class='VIII-F' dueDate='11-08-2020' />} />
       </div>
     </BrowserRouter>
   );

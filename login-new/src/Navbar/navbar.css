@@ -1,14 +1,28 @@
 .navbar{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background: #f9f9f9;
+    background: #edf6ff;
     border-bottom: #f3f3f3 1px solid;
     box-shadow:  #f3f3f3 2px 3px;
 }
 
 a{
     text-decoration: none;
+}
+
+.navbar-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.navbar-back{
+    position: absolute;
+    top: 18px;
+    left: 15px;
 }
 
 .navbar-back-button{
@@ -24,18 +38,50 @@ a{
 .navbar-heading{
     color: rgb(22, 21, 21);
     font-size: 20px;
-    padding-top: 15px;
+    padding-top: 12px;
     padding-bottom: 15px;
 }
 
-.navbar-step{
-    color: darkblue;
-    padding: 2%;
-    font-size: 12px;
+.navbar-subject{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.subject-about{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    font-size: 16px;
+}
+
+.subject-duedate{
+    color: #a1aab2;
+    font-size: 14px;
+}
+
+.subject-icon{
+    text-align: center;
+    flex: 1;
+}
+
+.subject-heading{
+    font-weight: bold;
 }
 
 @media only screen and (min-width: 380px){
     .navbar-heading{
         font-size: 24px;
+    }
+    .subject-about{
+        font-size: 20px;
+    }
+    .subject-duedate{
+        font-size: 16px;
+    }
+    .navbar-back-button{
+        font-size: 14px;
     }
 }

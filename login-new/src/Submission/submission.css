@@ -1,0 +1,63 @@
+.submission-page{
+    height: 100vh;
+}
+
+.homework-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+
+.homework-heading{
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.homework-information{
+    padding: 15px;
+}
+
+.submit-container button{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    background: #1cc373;
+    color: #cff6e7;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.submit-container .camera-icon{
+    flex: 1;
+}
+
+.submit-container p{
+    margin: 5px;
+    flex: 2;
+    text-align: left;
+}
+
+/* .uppy-Dashboard-innerWrap{
+    background: #1cc373;
+}
+
+.uppy-Dashboard-innerWrap button{
+    color: #cff6e7;
+    font-size: 20px;
+} */
+
+/* .uppy-DashboardTab-btn{
+    display: flex;
+    width: 86px;
+    margin-right: 1px;
+    flex-direction: column;
+    padding: 10px 3px;
+    border-radius: 5px;
+} */

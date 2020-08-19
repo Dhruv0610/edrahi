@@ -8,6 +8,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import ShareModal from '../ShareModal/sharemodal';
 import {Link} from 'react-router-dom';
+import submission from '../Submission/submission';
 
 const theme = createMuiTheme({
     overrides: {
@@ -89,6 +90,7 @@ const Homework = (props) => {
                             {shareBody}
                         </Modal>
                         <Link to='/profile'><button>Open Profile</button></Link>
+                        <Link to='/submission'><button>Submit Homework</button></Link>
                     </div>
                 </div>
             </ThemeProvider>
